@@ -1,3 +1,3 @@
 # HW6
 
-This is homework 6. 
+This is Homework 6!
