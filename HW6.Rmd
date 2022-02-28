@@ -8,4 +8,8 @@ name: Montgomery Inman
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+data(happy, package="productplots")
+head(happy)
+```
 
