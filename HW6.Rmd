@@ -1,0 +1,11 @@
+---
+title: "HW6"
+output: html_document
+name: Montgomery Inman
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
