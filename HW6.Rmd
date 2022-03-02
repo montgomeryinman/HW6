@@ -11,5 +11,26 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 data(happy, package="productplots")
 head(happy)
+
+happy <- readRDS("data/HAPPY.rds")
+```
+
+#1)
+```{r}
+happy = replace(happy, happy == "IAP", NA)
+happy = replace(happy, happy == "DK", NA)
+happy = replace(happy, happy == "NA", NA)
+```
+
+#2)
+```{r}
+happy$AGE <- as.numeric(happy$AGE)
+
+cols = c("HAPPY", "SEX","MARITAL", "DEGREE", "FINRELA", "HEALTH", "PARTYID", "POLVIEWS")
+
+happy[cols] <- lapply(happy[cols], factor) 
+
+happy$AGE[happy$AGE == "89 or older"] = 89
+str(happy)
 ```
 
