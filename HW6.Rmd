@@ -34,3 +34,37 @@ happy$AGE[happy$AGE == "89 or older"] = 89
 str(happy)
 ```
 
+```{r}
+
+library(tidyverse)
+HAPPY <- happy %>% mutate(
+  happy = factor(tolower(HAPPY))
+) %>% select(-HAPPY)
+
+levels(HAPPY$happy)
+```
+```{r}
+HAPPY <- replace(HAPPY, HAPPY == "IAP", NA)
+HAPPY <- replace(HAPPY, HAPPY == "DK", NA)
+HAPPY <- replace(HAPPY, HAPPY == "NA", NA)
+```
+
+```{r}
+HAPPY <- HAPPY %>% mutate(
+  age = replace(AGE, AGE == "89 AND OLDER", 89),
+  age = as.numeric(age)
+) %>% select(-AGE)
+
+HAPPY %>% ggplot(aes(x = age)) + geom_histogram(binwidth=1)
+```
+```{r}
+## REORDER ALL THE LEVELS ...
+
+HAPPY <- HAPPY %>% mutate(
+  degree = factor(tolower(DEGREE)),
+  degree = factor(degree, levels=c("lt high school", "high school", "junior college", "bachelor", "graduate school"))
+) %>% select(-DEGREE)
+
+HAPPY %>% ggplot(aes(x = degree)) + geom_bar()
+```
+
