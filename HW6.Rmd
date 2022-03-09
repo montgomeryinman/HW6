@@ -58,7 +58,7 @@ HAPPY <- HAPPY %>% mutate(
 HAPPY %>% ggplot(aes(x = age)) + geom_histogram(binwidth=1)
 ```
 ```{r}
-## REORDER ALL THE LEVELS ...
+## REORDER DEGREE...
 
 HAPPY <- HAPPY %>% mutate(
   degree = factor(tolower(DEGREE)),
@@ -66,5 +66,36 @@ HAPPY <- HAPPY %>% mutate(
 ) %>% select(-DEGREE)
 
 HAPPY %>% ggplot(aes(x = degree)) + geom_bar()
+```
+```{r}
+# REORDER MARITAL
+HAPPY <- HAPPY %>% mutate(
+  marital = factor(tolower(MARITAL)),
+  marital = factor(marital, levels=c("never married", "married", "divorced", "seperated", "widowed"))
+) %>% select(-MARITAL)
+```
+
+```{r}
+# REORDER FINRELA
+HAPPY <- HAPPY %>% mutate(
+  finrela = factor(tolower(FINRELA)),
+  finrela = factor(finrela, levels=c("far below average", "below average", "average", "above average", "far above average"))
+) %>% select(-FINRELA)
+```
+
+```{r}
+# REORDER HEALTH
+HAPPY <- HAPPY %>% mutate(
+  health = factor(tolower(HEALTH)),
+  health = factor(health, levels=c("poor", "fair", "good", "excellent"))
+) %>% select(-HEALTH)
+```
+
+```{r}
+# REORDER PARTYID
+HAPPY <- HAPPY %>% mutate(
+  partyid = factor(tolower(PARTYID)),
+  partyid = factor(partyid, levels=c("strong democrat", "not str democrat", "ind, near dem", "independent", "ind, near rep","not str republican", "strong republican", "other party"))
+) %>% select(-PARTYID)
 ```
 
