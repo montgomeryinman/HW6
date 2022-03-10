@@ -115,7 +115,7 @@ arrange(m.happy)
 happyMaritalDegree%>% 
   ggplot(aes(x = degree, fill = SEX)) + 
   geom_bar(aes(weight = m.happy), position = position_dodge()) + 
-  labs(title = "Happiness on martial and gender", y = "Happiness")
+  labs(title = "Happiness on degree and gender", y = "Happiness")
 ```
 
 
