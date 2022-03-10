@@ -3,6 +3,8 @@ title: "HW6"
 output: html_document
 name: Montgomery Inman
 ---
+Link: https://github.com/montgomeryinman/HW6
+Group: Montgomery Inman
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
